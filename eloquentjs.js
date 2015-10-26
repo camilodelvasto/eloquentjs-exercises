@@ -171,3 +171,13 @@ console.log(countBs("this string contains several BBBs, proBaBly 5"));
 
 
 
+
+// range function
+function range(start,end){
+  var arr = [];
+  if(end > start) for (var i = start; i <= end; i++) arr.push(i);
+  return arr;
+}
+
+
+
