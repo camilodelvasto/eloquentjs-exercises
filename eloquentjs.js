@@ -274,11 +274,20 @@ function nth(list,number){
 }
 
 function nth_rec(list,index){
+	if(!list) return undefined;
 	if(index == 0) return list.value;
 	else if (list.rest != null) return nth_rec(list.rest,index-1);
 	return undefined;
 }
 
+
+// deep comparison
+function deepEqual(obj1, obj2){
+	if (typeof obj1 != typeof obj2) return false;
+	if (typeof obj1 != "object") return obj1 === obj2;
+
+	return
+}
 
 
 
