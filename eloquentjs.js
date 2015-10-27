@@ -231,4 +231,87 @@ function reverseArrayInPlace(arr){
 }
 
 
+// functions for list data type
+function arrayToList(arr){
+	var list = null;
+	for(var i = arr.length-1; i >= 0; i--){
+		list = { value: arr[i], rest: list };
+	}
+	return list;
+}
+
+arrayToList([12,23,34,45]);
+
+function listToArray(list){
+	var arr = [];
+	while(list.rest != null){
+		arr.push(list.value);
+		list = list.rest;
+	}
+	if(list.value != null) arr.push(list.value);
+	return arr;
+}
+
+function listToArray2(list){
+	var arr = [];
+	for (var node = list; node; node = node.rest){
+		arr.push(node.value);
+	}
+	return arr;
+}
+
+function prepend(value,list){
+	return { value: value, rest: list};
+}
+
+function nth(list,number){
+	var element = 0;
+	for(var node = list; node; node = node.rest){
+		if(element == number) return node.value;
+		element++;
+	}
+	return undefined;
+}
+
+function nth_rec(list,index){
+	if(index == 0) return list.value;
+	else if (list.rest != null) return nth_rec(list.rest,index-1);
+	return undefined;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
