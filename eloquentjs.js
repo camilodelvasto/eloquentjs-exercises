@@ -285,12 +285,17 @@ function nth_rec(list,index){
 function deepEqual(obj1, obj2){
 	if (typeof obj1 != typeof obj2) return false;
 	if (typeof obj1 != "object") return obj1 === obj2;
-
-	return
+	var propertiesInObj1 = 0, propertiesInObj2 = 0;
+	for(var property in obj1){
+		propertiesInObj1++;
+	}
+	for(var property in obj2){
+		propertiesInObj2++;
+		if(propertiesInObj2>propertiesInObj1) return false;
+		if(!deepEqual(obj1[property],obj2[property])) return false;
+	}
+	return true;
 }
-
-
-
 
 
 
