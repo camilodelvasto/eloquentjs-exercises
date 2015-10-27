@@ -124,7 +124,8 @@ function perfTest(callback){
 	return output;
 }
 
-//we use bind as a way to "curry" or preset one or more parameters, we use null because we are not using/needing 'this' in the callbacked function
+//we use bind as a way to "curry" or preset one or more parameters, 
+//we use null because we are not using/needing 'this' in the callbacked function
 perfTest(min.bind(null, 123123, 4321));
 
 
@@ -178,6 +179,37 @@ function range(start,end){
   if(end > start) for (var i = start; i <= end; i++) arr.push(i);
   return arr;
 }
+
+// sum function
+function sum(arr){
+	var result = 0;
+	for(var i = 0; i < arr.length; i++) 
+		result += arr[i];
+	return result;
+}
+
+function range2(args){
+	var arr = [], sign = 1, start = arguments[0], end = arguments[1], step = arguments.length < 3 ? 1 : Math.abs(arguments[2]) != 0? arguments[2] : 1;
+	if(start>end) sign = -1;
+	for(var i = start; start < end? i <= end : i >= end; i += sign*step)
+		arr.push(i);
+	return arr;
+}
+
+function rangeImproved(args){
+	// sanitize input
+	var start = arguments[0];
+	var end = arguments[1];
+	var step = arguments.length < 3? 1 : Math.abs(arguments[2]);
+	var sign = start < end? true : false;
+	var arr = [];
+	// loop
+	for( var i = start; sign? i <= end : i>= end; sign? i += step : i -= step){
+		arr.push(i);
+	}
+	return arr;
+}
+
 
 
 
