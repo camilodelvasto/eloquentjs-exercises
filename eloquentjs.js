@@ -189,7 +189,8 @@ function sum(arr){
 }
 
 function range2(args){
-	var arr = [], sign = 1, start = arguments[0], end = arguments[1], step = arguments.length < 3 ? 1 : Math.abs(arguments[2]) != 0? arguments[2] : 1;
+	var arr = [], sign = 1, start = arguments[0], end = arguments[1],
+	    step = arguments.length < 3 ? 1 : Math.abs(arguments[2]) != 0? arguments[2] : 1;
 	if(start>end) sign = -1;
 	for(var i = start; start < end? i <= end : i >= end; i += sign*step)
 		arr.push(i);
@@ -210,6 +211,24 @@ function rangeImproved(args){
 	return arr;
 }
 
+// new functions to reverse arrays
+function reverseArray(arr){
+	var newArr = [];
+	while(arr.length>0){
+		newArr.push(arr.pop());
+	}
+	return newArr;
+}
+
+function reverseArrayInPlace(arr){
+	var l = arr.length;
+	for(var i = 0; i < l/2; i++){
+		arr.push(arr[i]);
+		arr[i] = arr[l-i-1];
+		arr[l-i-1] = arr.pop();
+	}
+	return arr;
+}
 
 
 
